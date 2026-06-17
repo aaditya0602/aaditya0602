@@ -16,12 +16,11 @@
 
 ### 👨‍💻 About me
 
-Computer Science student at **Virginia Tech** (Math minor · Dean's List) who builds **full-stack and AI-driven products end to end** — from an AI travel concierge and a campus voice assistant to a production research library for quantitative finance.
+Computer Science student at **Virginia Tech** who builds **full-stack and AI-driven products end to end** — currently working on a production research library for quantitative finance.
 
-- 🔭 **Currently:** SOC Intern @ **Airtel** · Research Assistant @ **Dataism Lab** (nonlinear time-series Python library)
+- 🔭 **Currently:** SOC Analyst Intern @ **Airtel** · Research Assistant @ **Dataism Lab** (nonlinear time-series Python library)
 - 🧠 **Into:** Agentic AI, LLM + RAG pipelines, and systems that actually ship
 - 💬 **Ask me about:** React / Next.js, FastAPI / Flask, LLM tooling, iOS / Swift
-- 🏆 **Hackathons:** Top 5/60 @ Marriott Codefest · Honorable Mention (Top 8/400+) @ VT Startup Sprint
 - 📫 **Reach me:** aaditya06@vt.edu
 - 🎯 **Open to** internships & full-time roles
 
