@@ -1,40 +1,43 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-# testing
-/coverage
-# next.js
-/.next/
-/out/
-# production
-/build
-# misc
-.DS_Store
-*.pem
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-# env files (can opt-in for committing if needed)
-.env*
-# vercel
-.vercel
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-# content
-CONTENT.md
-CLAUDE.md
-AGENTS.md
-.CLAUDE
-PROFILE_README.md
-snake.yml
-metrics.yml
+name: Generate Metrics
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stats card
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics/github-metrics.svg
+          base: header, activity, community, repositories, metadata
+          config_timezone: America/New_York
+
+      - name: Top languages
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics/languages.svg
+          base: ""
+          plugin_languages: yes
+          plugin_languages_limit: 8
+          plugin_languages_sections: most-used
+
+      - name: Contribution calendar (streak + average)
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics/isocalendar.svg
+          base: ""
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          config_timezone: America/New_York
